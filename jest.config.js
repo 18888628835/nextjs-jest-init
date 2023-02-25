@@ -3,8 +3,13 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
+const nextJest = require('next/jest')
 
-export default {
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: './',
+})
+const customJestConfig = {
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -17,4 +22,6 @@ export default {
     '^.+.svg$': '<rootDir>/src/mock/svg-transform.js',
     '^.+.(js|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
+  setupFilesAfterEnv: ['./src/mock/setup.ts'],
 }
+module.exports = createJestConfig(customJestConfig)
