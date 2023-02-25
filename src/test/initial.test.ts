@@ -3,7 +3,8 @@ import { addDiv } from 'src/utils/init/dom'
 
 describe('初始化测试', () => {
   it('支持 TypeScript', () => {
-    expect(sum(1, 2)).toBe(3)
+    const result = sum(1, 2)
+    expect(result).toBe(3)
   })
   it('测试是否支持浏览器环境', () => {
     addDiv()
