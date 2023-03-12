@@ -9,8 +9,8 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Run Coverage merge
-        run: npm run coverage:merge
       - uses: codecov/codecov-action@v3
+        run: npm run coverage:merge
       - name: Run codecov
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
       - name: Run test
