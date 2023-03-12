@@ -1,14 +1,18 @@
 name: Test
-on: push
+on:
+push:
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: codecov/codecov-action@v3
+      - uses: actions/checkout@v3
       - name: Install modules
         run: yarn
+      - name: Run tests with coverage
+        run: npm run coverage
       - name: Upload coverage reports to Codecov
-        run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
       - name: Run tests
         run: yarn test
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
