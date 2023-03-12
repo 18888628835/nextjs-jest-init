@@ -11,4 +11,4 @@ jobs:
       - name: Run tests
         run: yarn test
       - name: Upload coverage reports to Codecov
-        run: npx codecov --token=xxx(换成你的token) --file=coverage.json
+        run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
