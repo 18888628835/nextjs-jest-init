@@ -8,7 +8,7 @@ jobs:
       - uses: codecov/codecov-action@v3
       - name: Install modules
         run: yarn
-      - name: Run tests
-        run: yarn test
       - name: Upload coverage reports to Codecov
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
+      - name: Run tests
+        run: yarn test
