@@ -10,8 +10,8 @@ jobs:
         run: yarn
       - name: Run tests with coverage
         run: npm run coverage
-      - name: Upload coverage reports to Codecov
       - name: Run tests
         run: yarn test
+      - name: Upload coverage reports to Codecov
       - uses: codecov/codecov-action@v3
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
